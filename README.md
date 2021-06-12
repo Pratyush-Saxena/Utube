@@ -13,15 +13,17 @@ The best part of this API is that you can search the video having particular tag
 4. Export the host variable ```export HOST=0.0.0.0:8080 ```
 5. Run ```python3 loader.py ```
 
-If everything works fine then go to url  ```localhost:8080/API/``` and you must see below page in your browser
-
-![Screenshot (33)](https://user-images.githubusercontent.com/52444607/121772341-7a276d00-cb92-11eb-8c56-36ec63dc4ffe.png)
-
 
 ### Docker Installation (Prefer)
 1. Clone the repo : ```git clone https://github.com/Pratyush-Saxena/Utube ``` 
 2. Move into the cloned repository : ```cd Utube ```
 3. Run ``` docker compose build && docker compose up ```
+
+
+If everything works fine then go to url  ```localhost:8080/API/``` and you must see below page in your browser
+
+![Screenshot (33)](https://user-images.githubusercontent.com/52444607/121772341-7a276d00-cb92-11eb-8c56-36ec63dc4ffe.png)
+
 
 ## Accessing the API
 <li> API URL : <b>  localhost:8080/API/videos </b> </li>
@@ -35,13 +37,13 @@ If everything works fine then go to url  ```localhost:8080/API/``` and you must 
 
 ## Features
  ### 1. Search and Filter
-  You can search youtube video by any keyword by adding search query in your request , it will search the text in title and in description and show then result.
+  You can search youtube video by any keyword by adding search query in your request , it will search the text in title and description , and then shows the result.
   ex.
   ```
   curl --location --request GET 'http://localhost:8080/API/videos/?search=INDIA' \ --header 'X-Api-Key:<API-KEY>'
   ```
  ### 2. Pagination and Limit
-  This API provides pagination too , it provides the link to next page and previous page in response section , also you can access random page using offset and page query parameter. Also you can limit the response by addning limit query parameter. ex.
+  This API provides pagination too , it provides the link to next page and previous page in response of request, also you can access random page using offset and page query parameter. Also you can limit the response by addning limit query parameter. ex.
   ```
   curl --location --request GET 'http://localhost:8080/API/videos/?limit=10&offset=10&search=INDIA' \ --header 'X-Api-Key:<API-KEY>'
   ```
