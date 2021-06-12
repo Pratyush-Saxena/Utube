@@ -23,7 +23,7 @@ class VideoViewset(viewsets.ReadOnlyModelViewSet):
     serializer_class = VideoViewSerializer
     filter_backends = [filters.SearchFilter]
     permission_classes = [HasAPIKey]
-    search_fields = ['title', 'description','tags']
+    search_fields = ['title', 'description']
     def get_queryset(self):
         queryset = video.objects.all().order_by('-publishedAt')
         if self.request.query_params.get('id') is not None:

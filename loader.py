@@ -17,9 +17,16 @@ def APICaller():
     try:
         while(True):
             result=requests.get('http://'+HOST+'/loadvideo')
-            time.sleep(10) #after every 10 sec API will be called
+            time.sleep(300) #after every 300 sec API will be called
     except:
-        print("error in calling api !!! , please check the server")
+        print("error in calling api !!!")
+        time.sleep(10)
+        resp=requests.get('http://'+HOST+'/loadvideo')
+        if resp.status_code==200 or resp.status_code==301:
+            APICaller()
+        else:
+            print('API CALLING HAS STOPPED!!')
+            return
 
 #Approch used here is multi threading to call the API
 #asyncronously 
